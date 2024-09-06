@@ -1,0 +1,3 @@
+Generalized Dice Score: 0.3479314735552531
+Dice Score jeder Klasse:
+Class 1: 0.3479314735552531
