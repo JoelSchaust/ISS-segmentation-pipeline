@@ -12,7 +12,7 @@ parser.add_argument('--hpi', type=int, default=6, help='hours post infection (0-
 parser.add_argument('--s', type=int, default=5, help='what is s exactly? can be 1-9')
 parser.add_argument('--rep', type=int, default=2, help='repetition (0-2')
 parser.add_argument('--rnd', type=int, default=2, help='repetition (0-2')
-parser.add_argument('--minsize', type=int, default=10000, help='minimum size for an area to be closed')
+parser.add_argument('--minsize', type=int, default=10000, help='minimum size for an area to be closed') #change to set the area closing threshold
 parser.add_argument('--fov', type=int, default=15, help='field of view (0-9 usually)')
 parser.add_argument('--MOI', type=float, default=1, help='1.0 or 0.3')
 parser.add_argument('--input', type=str, default="path/to/output/folder/of/3nt_use_custom_model_skript/", help='input path')
