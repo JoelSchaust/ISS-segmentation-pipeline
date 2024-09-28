@@ -4,6 +4,7 @@ from skimage import io, morphology, measure
 from skimage.morphology import remove_small_objects
 import argparse
 
+# change the parameters according to the ones you want to use (especially minsize, ct and ft))
 parser = argparse.ArgumentParser(description='Remove small holes and area closing')
 parser.add_argument('--ct', type=float, default=-6.0, help='cellprob threshold (-6.0 to 6.0')
 parser.add_argument('--ft', type=float, default=1.0, help='flowthreshold (0.0 to 1.0')
