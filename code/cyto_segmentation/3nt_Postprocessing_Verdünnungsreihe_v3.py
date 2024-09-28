@@ -1,3 +1,4 @@
+# run this script from the base_environment
 import os
 import numpy as np
 from skimage import io, morphology, measure
