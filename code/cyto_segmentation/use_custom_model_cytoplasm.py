@@ -1,4 +1,4 @@
-#run this script with the cellpose environment 
+#this script is run from the cellpose environment 
 from cellpose import models, io
 from glob import glob
 import os
