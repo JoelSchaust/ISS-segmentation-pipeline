@@ -1,3 +1,4 @@
+# run this script from the base_environment
 import numpy as np
 import imageio
 import argparse
@@ -8,12 +9,12 @@ import pandas as pd
 from skimage.segmentation import relabel_sequential
 from scipy.optimize import linear_sum_assignment
 
-parser = argparse.ArgumentParser(description='compare ground truth to threshold runs (remapped)')
+parser = argparse.ArgumentParser(description='compare ground truth to hyperparameter optimzied outputs (remapped)')
 
 parser.add_argument('--ct', type=float, default=0.0, help='cellprob threshold (-6.0 to 6.0 for this peculiar experiment in steps of 2)')
 parser.add_argument('--ft', type=float, default=0.0, help='flowthreshold (0.0 to 1.0 in steps of 0.25)')
-parser.add_argument('--input', type=str, default="/home/s361852/Schreibtisch/in-situ-seq-segmentation/data/segmentation_3nt_3chan_non_mutant/Verdünnungsreihe_v3/postprocessed/6hpi/remapped/", help='input path')
-parser.add_argument('--output', type=str, default="/home/s361852/Schreibtisch/in-situ-seq-segmentation/data/segmentation_3nt_3chan_non_mutant/Verdünnungsreihe_v3/postprocessed/Dice_scores/", help='output path')
+parser.add_argument('--input', type=str, default="path/to/remapped/segmentation/outputs/", help='input path')
+parser.add_argument('--output', type=str, default="path/to/result/results/Dice_scores_cyto/", help='output path')
 args = parser.parse_args()
 
 ct = args.ct
@@ -21,11 +22,11 @@ ft = args.ft
 
 input_path = args.input
 output_path = args.output
-gt_path = "/home/s361852/Schreibtisch/in-situ-seq-segmentation/data/segmentation_3nt_3chan_non_mutant/Verdünnungsreihe_v3/ground_truth/"
+gt_path = "path/to/ground/truth/images/"
 
-output_file_name_pattern = f"ft{ft}_ct{ct}_3nt3chan_rep2_1MOI_5hpi_fov13_6Inc_round02_ch0-2-4_s8.txt"
-file_name_gt_pattern = f"GT_3nt3chan_rep2_1MOI_5hpi_fov13_6Inc_round02_ch0-2-4_s8.tif"
-file_name_pattern = f"remapped_ft{ft}_ct{ct}_3nt3chan_rep2_1MOI_5hpi_fov13_6Inc_round02_ch0-2-4_s8_cp_masks.png"
+output_file_name_pattern = f"ft{ft}_ct{ct}_3nt3chan_rep2_1MOI_5hpi_fov13_6Inc_round02_ch0-2-4_s8.txt" #name of the output.txt
+file_name_gt_pattern = f"GT_3nt3chan_rep2_1MOI_5hpi_fov13_6Inc_round02_ch0-2-4_s8.tif" #according to ground truth naming scheme
+file_name_pattern = f"remapped_ft{ft}_ct{ct}_3nt3chan_rep2_1MOI_5hpi_fov13_6Inc_round02_ch0-2-4_s8_cp_masks.png" #according to remapped_output_scheme
 
 output_path = os.path.join(output_path, output_file_name_pattern)
 remapped_image_path = os.path.join(input_path, file_name_pattern)
@@ -37,8 +38,8 @@ labels_image2 = imageio.imread(ground_truth_path) #ground truth
 relabelled_image_seq1, _, _ = relabel_sequential(labels_image1)
 relabelled_image_seq2, _, _ = relabel_sequential(labels_image2)
 
-num_labels_image1 = np.unique(relabelled_image_seq1).size - 1  # Subtrahiere 1, um den Hintergrund (0) auszuschließen (wichtig)
-num_labels_image2 = np.unique(relabelled_image_seq2).size - 1 
+num_labels_image1 = np.unique(relabelled_image_seq1).size - 1  # substract 1 to leave background out 
+num_labels_image2 = np.unique(relabelled_image_seq2).size - 1  # substract 1 to leave background out
 
 num_classes = max(num_labels_image1, num_labels_image2)
 
