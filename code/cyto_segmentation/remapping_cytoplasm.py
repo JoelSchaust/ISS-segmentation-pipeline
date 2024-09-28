@@ -1,3 +1,4 @@
+#this script is run from the base environment
 import numpy as np
 import imageio
 import argparse
