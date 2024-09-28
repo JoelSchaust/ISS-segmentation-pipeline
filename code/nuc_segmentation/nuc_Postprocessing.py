@@ -14,8 +14,8 @@ parser.add_argument('--inc', type=int, default=6, help='inc (1/2/3)')
 parser.add_argument('--minsize', type=int, default=7000, help='size remove small objects')
 parser.add_argument('--s', type=int, default=8, help='s-number (1-8)')
 parser.add_argument('--MOI', type=float, default=1, help='1 or 0.3')
-parser.add_argument('--input', type=str, default="/home/s361852/Schreibtisch/in-situ-sequencing-github/data/processed/output_images_nuc/", help='input path')
-parser.add_argument('--output', type=str, default="/home/s361852/Schreibtisch/in-situ-sequencing-github/data/processed/postprocessed_images_nuc/", help='output path')
+parser.add_argument('--input', type=str, default="../../data/processed/output_images_nuc/", help='input path')
+parser.add_argument('--output', type=str, default="../../data/processed/postprocessed_images_nuc/", help='output path')
 args = parser.parse_args()
 
 ct = args.ct
