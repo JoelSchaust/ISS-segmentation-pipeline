@@ -68,7 +68,7 @@ def generalized_dice_score(pred, gt, num_classes):
         intersection = np.sum(pred_i * gt_i)
         union = np.sum(pred_i) + np.sum(gt_i)
         if union == 0:
-            dice_scores.append(1)  # Perfekte Übereinstimmung, wenn keine Elemente vorhanden sind
+            dice_scores.append(1) 
         else:
             dice_scores.append(2. * intersection / union)
     return np.mean(dice_scores), dice_scores
