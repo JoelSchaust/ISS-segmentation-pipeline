@@ -1,4 +1,4 @@
-# this script has to be run from the devbio-napari env or the base_env!
+##this script is run from the devbio-napari or the base environment
 import argparse
 import napari
 from pathlib import Path
