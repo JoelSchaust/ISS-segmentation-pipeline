@@ -32,7 +32,8 @@ min_size =args.minsize
 input_path = args.input
 output_path = args.output
 
-file_name = f"{inc}Inc_PR8_Nepal_{MOI}MOI_{hpi}hpi_AllSegments_3R_50C__Region {fov}_Processed001_s0{s}_ch00_cp_masks.png"
+
+file_name = f"ft{ft}_ct{ct}_nuc_{inc}Inc_PR8_Nepal_{MOI}MOI_{hpi}hpi_AllSegments_3R_50C__Region {fov}_Processed001_s0{s}_ch00_cp_masks.png"
 input_image_path = os.path.join(input_path, file_name)
 
 segmentation_image = io.imread(input_image_path)
