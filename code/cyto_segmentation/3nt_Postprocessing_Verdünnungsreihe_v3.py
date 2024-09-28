@@ -14,7 +14,7 @@ parser.add_argument('--rep', type=int, default=2, help='repetition (0-2')
 parser.add_argument('--rnd', type=int, default=2, help='repetition (0-2')
 parser.add_argument('--minsize', type=int, default=10000, help='minimum size for an area to be closed') #change to set the area closing threshold
 parser.add_argument('--fov', type=int, default=15, help='field of view (0-9 usually)')
-parser.add_argument('--MOI', type=float, default=1, help='1.0 or 0.3')
+parser.add_argument('--moi', type=float, default=1, help='1.0 or 0.3')
 parser.add_argument('--input', type=str, default="path/to/output/folder/of/3nt_use_custom_model_skript/", help='input path')
 parser.add_argument('--output', type=str, default="path/to/final/output/folder", help='output path')
 args = parser.parse_args()
@@ -24,7 +24,7 @@ s = args.s
 ct = args.ct
 ft = args.ft
 hpi = args.hpi
-MOI = args.MOI
+moi = args.moi
 fov = args.fov
 rep = args.rep
 min_size =args.minsize
@@ -32,7 +32,7 @@ input_path = args.input
 output_path = args.output
 
 #the name scheme is set according to the output of 3nt_use_custom_model.py skript (change if your name scheme doesnt fit)
-file_name = f"ft{ft}_ct{ct}_3nt3chan_rep{rep}_{MOI}MOI_{hpi}hpi_fov{fov}_6Inc_round0{rnd}_ch0-2-4_s{s}_cp_masks.png"
+file_name = f"ft{ft}_ct{ct}_3nt3chan_rep{rep}_{moi}MOI_{hpi}hpi_fov{fov}_6Inc_round0{rnd}_ch0-2-4_s{s}_cp_masks.png"
 input_image_path = os.path.join(input_path, file_name)
 
 segmentation_image = io.imread(input_image_path)
