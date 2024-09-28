@@ -1,3 +1,4 @@
+#use this script with the cellpose environment
 from cellpose import models, io
 from glob import glob
 import os
@@ -8,12 +9,12 @@ parser.add_argument('--ct', type=float, default=0.0, help='cellprob threshold (-
 parser.add_argument('--ft', type=float, default=0.4, help='flowthreshold (0.0 to 1.0')
 parser.add_argument('--hpi', type=int, default=6, help='hours post infection (0-8)')
 parser.add_argument('--fov', type=int, default="15", help='field of view number')
-parser.add_argument('--inc', type=int, default=3, help='inc (1/2/3)')
-parser.add_argument('--s', type=int, default=2, help='s-number (1-8)')
-parser.add_argument('--MOI', type=float, default=1.0, help='1.0 or 0.3')
-parser.add_argument('--model', type=str, default="", help='custom model')
-parser.add_argument('--input', type=str, default="/home/s361852/Schreibtisch/in-situ-seq-segmentation/data/segmentation_3nt_nuc_non_mutant/input_images/", help='input path')
-parser.add_argument('--output', type=str, default="/home/s361852/Schreibtisch/in-situ-seq-segmentation/data/segmentation_3nt_nuc_non_mutant/output_images/", help='output path')
+parser.add_argument('--inc', type=int, default=6, help='inc (1/2/3)')
+parser.add_argument('--s', type=int, default=5, help='s-number (1-8)')
+parser.add_argument('--MOI', type=float, default=1, help='1.0 or 0.3')
+parser.add_argument('--model', type=str, default="../../results/models/Nucleus_Segmentation", help='custom model')
+parser.add_argument('--input', type=str, default="../../data/raw/input_images_nuc/", help='input path')
+parser.add_argument('--output', type=str, default="../../data/processed/output_images_nuc/", help='output path')
 args = parser.parse_args()
 
 ct = args.ct
