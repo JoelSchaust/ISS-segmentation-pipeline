@@ -13,8 +13,8 @@ parser = argparse.ArgumentParser(description='compare ground truth to hyperparam
 
 parser.add_argument('--ct', type=float, default=0.0, help='cellprob threshold (-6.0 to 6.0 for this peculiar experiment in steps of 2)')
 parser.add_argument('--ft', type=float, default=0.0, help='flowthreshold (0.0 to 1.0 in steps of 0.25)')
-parser.add_argument('--input', type=str, default="path/to/remapped/segmentation/outputs/", help='input path')
-parser.add_argument('--output', type=str, default="path/to/result/results/Dice_scores_cyto/", help='output path')
+parser.add_argument('--input', type=str, default='path/to/remapped/segmentation/outputs/', help='input path')
+parser.add_argument('--output', type=str, default='path/to/result/results/Dice_scores_cyto/', help='output path')
 args = parser.parse_args()
 
 ct = args.ct
@@ -22,11 +22,11 @@ ft = args.ft
 
 input_path = args.input
 output_path = args.output
-gt_path = "path/to/ground/truth/images/"
+gt_path = 'path/to/ground/truth/images/'
 
-output_file_name_pattern = f"ft{ft}_ct{ct}_3nt3chan_rep2_1MOI_5hpi_fov13_6Inc_round02_ch0-2-4_s8.txt" #name of the output.txt
-file_name_gt_pattern = f"GT_3nt3chan_rep2_1MOI_5hpi_fov13_6Inc_round02_ch0-2-4_s8.tif" #according to ground truth naming scheme
-file_name_pattern = f"remapped_ft{ft}_ct{ct}_3nt3chan_rep2_1MOI_5hpi_fov13_6Inc_round02_ch0-2-4_s8_cp_masks.png" #according to remapped_output_scheme
+output_file_name_pattern = f'ft{ft}_ct{ct}_3nt3chan_rep2_1MOI_5hpi_fov13_6Inc_round02_ch0-2-4_s8.txt' #name of the output.txt
+file_name_gt_pattern = f'GT_3nt3chan_rep2_1MOI_5hpi_fov13_6Inc_round02_ch0-2-4_s8.tif' #according to ground truth naming scheme
+file_name_pattern = f'remapped_ft{ft}_ct{ct}_3nt3chan_rep2_1MOI_5hpi_fov13_6Inc_round02_ch0-2-4_s8_cp_masks.png' #according to remapped_output_scheme
 
 output_path = os.path.join(output_path, output_file_name_pattern)
 remapped_image_path = os.path.join(input_path, file_name_pattern)
@@ -50,7 +50,7 @@ for i in range(num_classes):
         cost_matrix[i, j] = np.sum((relabelled_image_seq1 == i) & (relabelled_image_seq2 == j))
 
 
-cost_matrix_df = pd.DataFrame(cost_matrix, columns=[f"Class_{i}" for i in range(num_classes)], index=[f"Class_{i}" for i in range(num_classes)])
+cost_matrix_df = pd.DataFrame(cost_matrix, columns=[f'Class_{i}' for i in range(num_classes)], index=[f'Class_{i}' for i in range(num_classes)])
 
 row_ind, col_ind = linear_sum_assignment(-cost_matrix)
 mapping = dict(zip(row_ind, col_ind))
@@ -77,10 +77,10 @@ def generalized_dice_score(pred, gt, num_classes):
 generalized_dice, dice_scores = generalized_dice_score(remapped_image1, relabelled_image_seq2, num_classes)
 
 with open(output_path, 'w') as file:
-    file.write(f"Generalized Dice Score: {generalized_dice}\n")
-    file.write("Dice Score jeder Klasse:\n")
+    file.write(f'Generalized Dice Score: {generalized_dice}\n')
+    file.write('Dice Score jeder Klasse:\n')
     for i, score in enumerate(dice_scores, start=1):
-        file.write(f"Class {i}: {score}\n")
+        file.write(f'Class {i}: {score}\n')
 
 
 
