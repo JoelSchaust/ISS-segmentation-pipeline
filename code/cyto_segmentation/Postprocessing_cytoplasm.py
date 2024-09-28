@@ -16,8 +16,8 @@ parser.add_argument('--rnd', type=int, default=2, help='repetition (0-2')
 parser.add_argument('--minsize', type=int, default=10000, help='minimum size for an area to be closed') #change to set the area closing threshold
 parser.add_argument('--fov', type=int, default=15, help='field of view (0-9 usually)')
 parser.add_argument('--moi', type=float, default=1, help='1.0 or 0.3')
-parser.add_argument('--input', type=str, default='path/to/output/folder/of/3nt_use_custom_model_skript/', help='input path')
-parser.add_argument('--output', type=str, default='path/to/final/output/folder', help='output path')
+parser.add_argument('--input', type=str, default='../../data/processed/output_images_cyto/', help='input path')
+parser.add_argument('--output', type=str, default='../../data/processed/postprocessed_images_cyto/', help='output path')
 args = parser.parse_args()
 
 rnd = args.rnd
