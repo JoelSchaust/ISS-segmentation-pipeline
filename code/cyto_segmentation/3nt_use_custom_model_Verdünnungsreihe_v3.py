@@ -12,7 +12,7 @@ parser.add_argument('--s', type=int, default=5, help='what is s exactly? can be 
 parser.add_argument('--rep', type=int, default=2, help='repetition (0-2')
 parser.add_argument('--rnd', type=int, default=2, help='round (01-02')
 parser.add_argument('--fov', type=int, default=15, help='field of view (0-9 usually)')
-parser.add_argument('--MOI', type=float, default=1, help='1.0 or 0.3')
+parser.add_argument('--moi', type=float, default=1, help='1.0 or 0.3')
 parser.add_argument('--model', type=str, default="path/to/your/cytoplasm_model", help='custom model')
 parser.add_argument('--input', type=str, default="path/to/3channel/images/cytoplasm/", help='input path')
 parser.add_argument('--output', type=str, default="path/to/ouput/folder/", help='output path')
@@ -23,14 +23,14 @@ ct = args.ct
 s = args.s
 ft = args.ft
 hpi = args.hpi
-MOI = args.MOI
+moi = args.moi
 fov = args.fov
 rep = args.rep
 model_path = args.model
 input_path = args.input
 output_path = args.output
 
-file = f"{input_path}3nt3chan_rep{rep}_{MOI}MOI_{hpi}hpi_fov{fov}_6Inc_round0{rnd}_ch0-2-4_s{s}.tiff" #specific to name format of your data
+file = f"{input_path}3nt3chan_rep{rep}_{moi}MOI_{hpi}hpi_fov{fov}_6Inc_round0{rnd}_ch0-2-4_s{s}.tiff" #specific to name format of your data
 flow_threshold = ft
 cellprob_threshold = ct
 model = models.CellposeModel(gpu=True, pretrained_model=model_path)
