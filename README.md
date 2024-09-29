@@ -84,7 +84,7 @@ Output folder: [Postprocessed cytoplasm](https://github.com/JoelSchaust/ISS-segm
 mamba activate base_environment.yml 
 python code/nuc_Postprocessing.py --hpi 6 --fov 15 --s 5 # change the arguments in order to call different fovs
 ```
-Output folder: [Remapped nuclei](https://github.com/JoelSchaust/ISS-segmentation-pipeline/tree/main/data/processed/remapped_images_cyto)
+Output folder: [Remapped cytoplasm](https://github.com/JoelSchaust/ISS-segmentation-pipeline/tree/main/data/processed/remapped_images_cyto)
 
 However, the scripts can also be called individually, as all intermediate files already exist in the [data folder](https://github.com/JoelSchaust/ISS-segmentation-pipeline/tree/main/data).
 
