@@ -14,7 +14,7 @@ parser.add_argument('--fov', type=int, default="11", help='field of view number'
 parser.add_argument('--inc', type=int, default=6, help='inc (1/2/3)')
 parser.add_argument('--minsize', type=int, default=7000, help='size remove small objects')
 parser.add_argument('--s', type=int, default=8, help='s-number (1-8)')
-parser.add_argument('--MOI', type=float, default=1, help='1 or 0.3')
+parser.add_argument('--moi', type=float, default=1, help='1 or 0.3')
 parser.add_argument('--input', type=str, default="../../data/processed/output_images_nuc/", help='input path')
 parser.add_argument('--output', type=str, default="../../data/processed/postprocessed_images_nuc/", help='output path')
 args = parser.parse_args()
@@ -23,7 +23,7 @@ ct = args.ct
 ft = args.ft
 s = args.s
 hpi = args.hpi
-MOI = args.MOI
+moi = args.moi
 fov = args.fov
 inc = args.inc
 min_size = args.minsize
@@ -34,7 +34,7 @@ input_path = args.input
 output_path = args.output
 
 
-file_name = f"ft{ft}_ct{ct}_nuc_{inc}Inc_PR8_Nepal_{MOI}MOI_{hpi}hpi_AllSegments_3R_50C__Region {fov}_Processed001_s0{s}_ch00_cp_masks.png"
+file_name = f"ft{ft}_ct{ct}_nuc_{inc}Inc_PR8_Nepal_{moi}MOI_{hpi}hpi_AllSegments_3R_50C__Region {fov}_Processed001_s0{s}_ch00_cp_masks.png"
 input_image_path = os.path.join(input_path, file_name)
 
 segmentation_image = io.imread(input_image_path)
