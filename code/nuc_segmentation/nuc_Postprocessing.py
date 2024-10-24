@@ -10,7 +10,7 @@ parser = argparse.ArgumentParser(description='Remove small holes and area closin
 parser.add_argument('--ct', type=float, default=0.0, help='cellprob threshold (-6.0 to 6.0')
 parser.add_argument('--ft', type=float, default=0.4, help='flowthreshold (0.0 to 1.0')
 parser.add_argument('--hpi', type=int, default=4, help='hours post infection (0-8)')
-parser.add_argument('--fov', type=int, default="11", help='name of mutant')
+parser.add_argument('--fov', type=int, default="11", help='field of view number')
 parser.add_argument('--inc', type=int, default=6, help='inc (1/2/3)')
 parser.add_argument('--minsize', type=int, default=7000, help='size remove small objects')
 parser.add_argument('--s', type=int, default=8, help='s-number (1-8)')
