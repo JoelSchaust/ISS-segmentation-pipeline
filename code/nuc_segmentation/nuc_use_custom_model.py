@@ -11,7 +11,7 @@ parser.add_argument('--hpi', type=int, default=4, help='hours post infection (0-
 parser.add_argument('--fov', type=int, default="11", help='field of view number')
 parser.add_argument('--inc', type=int, default=6, help='inc (1/2/3)')
 parser.add_argument('--s', type=int, default=8, help='s-number (1-8)')
-parser.add_argument('--MOI', type=float, default=1, help='1.0 or 0.3')
+parser.add_argument('--moi', type=float, default=1, help='1.0 or 0.3')
 parser.add_argument('--model', type=str, default="../../results/models/Nucleus_Segmentation", help='custom model')
 parser.add_argument('--input', type=str, default="../../data/raw/input_images_nuc/", help='input path')
 parser.add_argument('--output', type=str, default="../../data/processed/output_images_nuc/", help='output path')
@@ -21,7 +21,7 @@ ct = args.ct
 ft = args.ft
 s = args.s
 hpi = args.hpi
-MOI = args.MOI
+moi = args.moi
 fov = args.fov
 inc = args.inc
 
@@ -30,7 +30,7 @@ input_path = args.input
 output_path = args.output
 
 #{inc}Inc_PR8_Nepal_{MOI}MOI_{hpi}hpi_AllSegments_3R_50C__Region {fov}_Processed001_s0{s}_ch00.tif
-file = f"{input_path}{inc}Inc_PR8_Nepal_{MOI}MOI_{hpi}hpi_AllSegments_3R_50C__Region {fov}_Processed001_s0{s}_ch00.tif"
+file = f"{input_path}{inc}Inc_PR8_Nepal_{moi}MOI_{hpi}hpi_AllSegments_3R_50C__Region {fov}_Processed001_s0{s}_ch00.tif"
 flow_threshold = ft
 cellprob_threshold = ct
 model = models.CellposeModel(gpu=True, pretrained_model=model_path)
